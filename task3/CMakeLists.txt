@@ -1,0 +1,6 @@
+cmake_minimum_required (VERSION 3.2)
+project (rational)
+set (SOURCE_FILES rational.cpp rational.h rational.cpp)
+add_library (rational ${SOURCE_FILES})
+install (TARGETS rational DESTINATION lib)
+install (FILES rational.h DESTINATION include)
