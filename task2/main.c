@@ -433,5 +433,13 @@ int main() {
         free(com);
     }
     fclose(pf);
+    for (; ;)
+    {
+      readLine(0);
+      getCommand();
+      fflush (stdout);
+      free(line);
+    }
+  return 0;
     return 0;
 }
