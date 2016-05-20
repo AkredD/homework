@@ -8,6 +8,8 @@ class rational {
 
 public:
     rational(int numer);
+    int getNum() const;
+	int getDenom() const;
     rational(int numer, int denom);
     rational const operator -(rational const &) const;
     rational const operator +(rational const &) const;
