@@ -1,5 +1,12 @@
 #include "rational.h"
 
+int rational::getNum() const {
+	return this->numer;
+}
+
+int rational::getDenom() const {
+	return this->denom;
+}
 
 rational::rational(int numer) {
 	this->numer = numer;
