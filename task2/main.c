@@ -393,6 +393,7 @@ int main() {
     while (1) {
         int ex = 1;
         fflush(stdin);
+        fflush (stdout);
         char *command = (char *) malloc((BUFSIZ) * sizeof(char));
         char *com = (char *) malloc((BUFSIZ) * sizeof(char));
         fgets(command, BUFSIZ, stdin);
@@ -432,14 +433,8 @@ int main() {
         free(command);
         free(com);
     }
+    fflush (stdout);
     fclose(pf);
-    for (; ;)
-    {
-      readLine(0);
-      getCommand();
-      fflush (stdout);
-      free(line);
-    }
-  return 0;
+    
     return 0;
 }
