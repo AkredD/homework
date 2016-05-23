@@ -6,7 +6,7 @@ using namespace std;
 lazy_string::operator string() {
 	return str->substr(start, size);
 };
-
+// test
 lazy_string::lazy_string() {
 	this->size = 0;
 	this->start = 0;
