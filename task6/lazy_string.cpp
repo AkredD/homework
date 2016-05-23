@@ -26,6 +26,8 @@ lazy_string::lazy_string(size_t start, size_t size, shared_ptr<string> str) {
 }
 
 lazy_string lazy_string::substr(size_t beg = 0, size_t len = 0) {
+	if (beg > len || start_index < 0)
+	  throw std::out_of_range("lazy string at index " + beg);
 	if (beg + len > size) {
 		return lazy_string(beg, len, this->str);
 	}
