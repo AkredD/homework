@@ -241,7 +241,11 @@ void find(char *command, int i) {
                     for (i = 0; i < nameM;++i){
                     	printf("%c", name[i]);
 					}
-                    printf(" %s\n", number);
+					printf(" ");
+                    for (i = 0; i < nameN;++i){
+                    	printf("%c", number[i]);
+					}
+					printf("\n");
                 }
             } else {
                 if (strings(number, test, 2)) {
@@ -251,7 +255,11 @@ void find(char *command, int i) {
                     for (i = 0; i < nameM;++i){
                     	printf("%c", name[i]);
 					}
-                    printf(" %s\n", number);
+					printf(" ");
+                    for (i = 0; i < nameN;++i){
+                    	printf("%c", number[i]);
+					}
+					printf("\n");
                 }
             }
         }
@@ -438,7 +446,6 @@ int main() {
             if (checkcom(command, 3, i)) change(command, id, i + 2);
         }
         if (ex) printf("incorrect input\n");
-        free(command);
         free(com);
     }
     fflush (stdout);
