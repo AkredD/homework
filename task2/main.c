@@ -236,14 +236,22 @@ void find(char *command, int i) {
             if (check) {
                 if (checkstr(name, test)) {
                     name[nameM] = ' ';
-                    number[nameN] = ' ';
-                    printf("%c %s%s \n", id, name, number);
+                    number[nameN] = '\r';
+                    printf("%c ", id);
+                    for (i = 0; i < nameM;++i){
+                    	printf("%c", name[i]);
+					}
+                    printf(" %s\n", number);
                 }
             } else {
                 if (strings(number, test, 2)) {
                     number[nameN] = ' ';
-                    name[nameM] = ' ';
-                    printf("%c %s%s\n", id, name, number);
+                    name[nameM] = '\r';
+                    printf("%c ", id);
+                    for (i = 0; i < nameM;++i){
+                    	printf("%c", name[i]);
+					}
+                    printf(" %s\n", number);
                 }
             }
         }
@@ -255,7 +263,7 @@ void find(char *command, int i) {
     return;
 }
 
-void deletE(char idN) {
+void deletE(char idN	) {
     char *str = (char *) malloc((BUFSIZ) * sizeof(char));
     pr = fopen("new2.txt", "w");
     pr = fopen("new2.txt", "r+");
@@ -273,7 +281,7 @@ void deletE(char idN) {
                     name[i] = str[j++];
                     ++i;
                 } else {
-                    name[i] = '$';
+                    name[i++] = '$';
                     ++j;
                     break;
                 }
@@ -284,7 +292,7 @@ void deletE(char idN) {
                     number[i] = str[j++];
                     ++i;
                 } else {
-                    number[i] = '$';
+                    number[i++] = '$';
                     break;
                 }
             }
