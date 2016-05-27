@@ -119,7 +119,7 @@ int checkcom(char *command, int l, int i) {
 
 int strings(char *s, char *c, int k) {
     int lens, lenc;
-    int i;
+    int i,j;
     if (k == 2) {
         for (lens = 0; s[lens] != '$'; ++lens);
         for (lenc = 0; c[lenc] != '$'; ++lenc);
@@ -132,9 +132,12 @@ int strings(char *s, char *c, int k) {
         lenc = strlen(c);
         for (lens = 0; s[lens] != '$'; ++lens);
     }
-    if (lenc == lens) {
-        for (i = 0; i < lenc; ++i) {
-            if (s[i] != c[i]) {
+    if (lenc == lens || lenc + 1 == lens) {
+    	i = 0;
+    	j = 0;
+        for (; j < lenc; ++i, ++j) {
+        	if (s[i] == '+') ++i;
+            if (s[i] != c[j]) {
                 return 0;
             }
         }
