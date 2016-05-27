@@ -26,7 +26,8 @@ int main(int argc, char *argv[]) {
             return 0;
         }
         scanf("%d%d%d", &y1, &x2, &y2);
-        if ( x1 < 1 || x2 < 1 || y1 < 1 || y2 < 1){
+        if ( x1 < 1 || x2 < 1 || y1 < 1 || y2 < 1 || x1 > x2 || y1 > y2
+                || x1 > n || x2 > n || y1 > n || y2 > n){
             for (i = 0; i <= n; i++) {
                 free(arr[i]);
             }
