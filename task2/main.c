@@ -195,10 +195,10 @@ char *create(int i, char *command, char *merge) {
 }
 
 void find(char *command, int i) {
-    char *str = (char *) malloc((BUFSIZ) * sizeof(char));
+    char *str = (char *) malloc((BUFSIZ*10) * sizeof(char));
     int j = 0;
     int check = 1;
-    char *test = (char *) malloc((BUFSIZ) * sizeof(char));
+    char *test = (char *) malloc((BUFSIZ*10) * sizeof(char));
     if ((command[i] >= '0' && command[i] <= '9') || command[i] == '+') check = 0;
     while (command[i] != '\n') {
         test[j++] = command[i++];
@@ -209,8 +209,8 @@ void find(char *command, int i) {
     while (fgets(str, BUFSIZ, pf)) {
         j = 0;
         i = 0;
-        char *name = (char *) malloc((BUFSIZ) * sizeof(char));
-        char *number = (char *) malloc((BUFSIZ) * sizeof(char));
+        char *name = (char *) malloc((BUFSIZ*10) * sizeof(char));
+        char *number = (char *) malloc((BUFSIZ*10) * sizeof(char));
         char id;
         if (str[j++] == '$') {
             id = str[j++];
@@ -275,15 +275,15 @@ void find(char *command, int i) {
 }
 
 void deletE(char idN	) {
-    char *str = (char *) malloc((BUFSIZ) * sizeof(char));
+    char *str = (char *) malloc((BUFSIZ*10) * sizeof(char));
     pr = fopen("new2.txt", "w");
     pr = fopen("new2.txt", "r+");
     rewind(pf);
     while (fgets(str, BUFSIZ, pf)) {
         int j = 0;
         int i = 0;
-        char *name = (char *) malloc((BUFSIZ) * sizeof(char));
-        char *number = (char *) malloc((BUFSIZ) * sizeof(char));
+        char *name = (char *) malloc((BUFSIZ*10) * sizeof(char));
+        char *number = (char *) malloc((BUFSIZ*10) * sizeof(char));
         char id;
         if (str[j++] == '$') {
             id = str[j++];
