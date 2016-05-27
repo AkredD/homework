@@ -206,7 +206,7 @@ void find(char *command, int i) {
     }
     test[j] = '$';
     rewind(pf);
-    while (fgets(str, BUFSIZ, pf)) {
+    while (fgets(str, BUFSIZ*10, pf)) {
         j = 0;
         i = 0;
         char *name = (char *) malloc((BUFSIZ*10) * sizeof(char));
