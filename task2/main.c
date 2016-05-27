@@ -312,7 +312,7 @@ void deletE(char idN	) {
             }
         }
         free(str);
-        char *str = (char *) malloc((BUFSIZ) * sizeof(char));
+        char *str = (char *) malloc((BUFSIZ*10) * sizeof(char));
         free(name);
         free(number);
     }
@@ -320,11 +320,11 @@ void deletE(char idN	) {
     rewind(pr);
     pf = fopen("new1.txt", "w");
     pf = fopen("new1.txt", "r+");
-    char *line = (char *) malloc((BUFSIZ) * sizeof(char));
-    while (fgets(line, BUFSIZ, pr)) {
+    char *line = (char *) malloc((BUFSIZ*10) * sizeof(char));
+    while (fgets(line, BUFSIZ*10, pr)) {
         fprintf(pf, "%s\n", line);
         free(line);
-        char *line = (char *) malloc((BUFSIZ) * sizeof(char));
+        char *line = (char *) malloc((BUFSIZ*10) * sizeof(char));
     }
     free(line);
     fclose(pr);
@@ -334,21 +334,21 @@ void deletE(char idN	) {
 void change(char *command, char idN, int i) {
     int check = 1;
     int j = 0;
-    char *test = (char *) malloc((BUFSIZ) * sizeof(char));
+    char *test = (char *) malloc((BUFSIZ*10) * sizeof(char));
     if ((command[i] >= '0' && command[i] <= '9') || command[i] == '+') check = 0;
     while (command[i] != '\n') {
         test[j++] = command[i++];
     }
     test[j] = '$';
-    char *str = (char *) malloc((BUFSIZ) * sizeof(char));
+    char *str = (char *) malloc((BUFSIZ*10) * sizeof(char));
     pr = fopen("new2.txt", "w");
     pr = fopen("new2.txt", "r+");
     rewind(pf);
-    while (fgets(str, BUFSIZ, pf)) {
+    while (fgets(str, BUFSIZ*10, pf)) {
         j = 0;
         int i = 0;
-        char *name = (char *) malloc((BUFSIZ) * sizeof(char));
-        char *number = (char *) malloc((BUFSIZ) * sizeof(char));
+        char *name = (char *) malloc((BUFSIZ*10) * sizeof(char));
+        char *number = (char *) malloc((BUFSIZ*10) * sizeof(char));
         char id;
         if (str[j++] == '$') {
             id = str[j++];
@@ -381,7 +381,7 @@ void change(char *command, char idN, int i) {
             }
         }
         free(str);
-        char *str = (char *) malloc((BUFSIZ) * sizeof(char));
+        char *str = (char *) malloc((BUFSIZ*10) * sizeof(char));
         free(name);
         free(number);
     }
@@ -389,13 +389,13 @@ void change(char *command, char idN, int i) {
     rewind(pr);
     pf = fopen("new1.txt", "w");
     pf = fopen("new1.txt", "r+");
-    char *line = (char *) malloc((BUFSIZ) * sizeof(char));
-    while (fgets(line, BUFSIZ, pr)) {
+    char *line = (char *) malloc((BUFSIZ*10) * sizeof(char));
+    while (fgets(line, BUFSIZ*10, pr)) {
         if (line[0] == '\n') break;
         fprintf(pf, "%s\n", line);
         //printf("%s\n",line);
         free(line);
-        char *line = (char *) malloc((BUFSIZ) * sizeof(char));
+        char *line = (char *) malloc((BUFSIZ*10) * sizeof(char));
     }
     free(test);
     free(line);
@@ -413,9 +413,9 @@ int main() {
         int ex = 1;
         fflush(stdin);
         fflush (stdout);
-        char *command = (char *) malloc((BUFSIZ) * sizeof(char));
-        char *com = (char *) malloc((BUFSIZ) * sizeof(char));
-        fgets(command, BUFSIZ, stdin);
+        char *command = (char *) malloc((BUFSIZ*10) * sizeof(char));
+        char *com = (char *) malloc((BUFSIZ*10) * sizeof(char));
+        fgets(command, BUFSIZ*10, stdin);
         if (strings(command, "exit", 1)) {
             free(command);
             free(com);
@@ -429,7 +429,7 @@ int main() {
         int h = i;
         if (strings(com, "create", 0)) {
             ex = 0;
-            char *merge = (char *) malloc((BUFSIZ) * sizeof(char));
+            char *merge = (char *) malloc((BUFSIZ*10) * sizeof(char));
             if (checkcom(command, 0, i + 1)) fprintf(pf, "%s \n", create(i, command, merge));
             free(merge);
         }
