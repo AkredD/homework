@@ -92,13 +92,6 @@ std::string get_format_string(T &arg, Format &format, std::string &format_str, t
 	return result;
 }
 
-//Check type pointers
-template<typename T>
-bool check_type(Format format, T variable, typename std::enable_if<(!(std::is_convertible<T, std::string>::value) && (std::is_pointer<T>::value)), std::string>::type * = 0)
-{
-	return format == p;
-}
-
 //Check numbers or char type
 template<typename T>
 bool check_type(Format format, T variable, typename std::enable_if<!(std::is_convertible<T, std::string>::value) && !(std::is_pointer<T>::value), std::string>::type * = 0)
@@ -116,6 +109,12 @@ bool check_type(Format format, T variable, typename std::enable_if<!(std::is_con
 	throw std::invalid_argument("Invalid argument");
 }
 
+//Check type pointers
+template<typename T>
+bool check_type(Format format, T variable, typename std::enable_if<(!(std::is_convertible<T, std::string>::value) && (std::is_pointer<T>::value)), std::string>::type * = 0)
+{
+	return format == p;
+}
 
 //Converts arg to int, used for reading width and precision
 template<typename T>
@@ -127,7 +126,7 @@ int read_int(T &arg, typename std::enable_if<std::is_integral<T>::value>::type *
 template<typename T>
 int read_int(T &arg, typename std::enable_if<!std::is_integral<T>::value>::type * = 0)
 {
-	throw std::invalid_argument(std::string("Invalid argument, expected integral type"));
+	throw std::invalid_argument(std::string("expected integral type"));
 }
 
 
